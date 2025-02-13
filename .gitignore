@@ -1,6 +1,7 @@
 *.png
 *.jpg
 uv.lock
+*txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
