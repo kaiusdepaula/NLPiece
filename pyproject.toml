@@ -13,7 +13,6 @@ dependencies = [
     "pip>=25.0",
     "plotly>=6.0.0",
     "pulp>=2.9.0",
-    "python-dotenv>=1.0.1",
     "requests>=2.28.1",
     "seaborn>=0.13.2",
     "sentence-transformers>=3.4.1",
