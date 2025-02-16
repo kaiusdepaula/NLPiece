@@ -19,8 +19,10 @@ class OnePieceSaga:
             "Fish-Man_Island": range(61, 67),
             "Punk_Hazard": range(67, 71),
             "Dressrosa": range(71, 81),
-            "Whole_Cake_Island": range(81, 91),
-            "Wano": range(91, 101),
+            "Zou": range(81, 83),
+            "Whole_Cake_Island": range(83, 91),
+            "Wano": range(91, 105),
+            "Egghead": range(105, 112)
         }
 
         # Mapping volumes to sagas
