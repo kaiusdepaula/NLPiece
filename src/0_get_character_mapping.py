@@ -32,6 +32,7 @@ def sample_and_save_cropped_characters(sampled_pages:int) -> None:
         sampled_pages = 60
 
     for saga, volumes in one_piece.saga_mapper.items():
+        print(f"\n\nSaving random character images into {saga} folder.")
         os.makedirs(f"{OUTPUT_DIR}/{saga}", exist_ok=True)
         volume_lists = []  
         for volume in volumes:  
@@ -47,7 +48,6 @@ def sample_and_save_cropped_characters(sampled_pages:int) -> None:
             model.visualise_single_image_prediction(image, page_result)
             for bbox in page_result["characters"]:
                 save_bbox(image, bbox, saga)
-
 
 
 # Run script
