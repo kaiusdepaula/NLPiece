@@ -8,10 +8,10 @@ If you're a One Piece fan, you know that Eiichiro Oda's storytelling
 goes far beyond a rubber-powered pirate, it's a masterpiece of world-building, 
 philosophy, and adventure.
 
-This project aims to extract text from every single volume of the *greatest 
-story ever told* and dive deep into text analysis using contextual [Top2Vec](https://github.com/ddangelov/Top2Vec). 
+**This project aims to extract text from every single volume of the *greatest 
+story ever told* (up until Wano arc volume 105) and dive deep into text analysis using contextual [Top2Vec](https://github.com/ddangelov/Top2Vec).**
 
-I'll be leveraging the powerful [MagiV2](https://github.com/ragavsachdeva/magi) transformer model to extract transcripts of the source material, storing everything on a plain text. After that, I'll provide a very extensive analysis using basic stuff, such as tf-idf on volumes and sagas. Not only that, I'll extract topics and provide embeddings for each volume of the story.
+I'll be leveraging the powerful [MagiV2](https://github.com/ragavsachdeva/magi) transformer model to extract transcripts of the source material, storing everything on a plain text. After that, I'll provide a very extensive analysis using basic stuff, such as tf-idf on volumes and sagas and more complex up to topic modelling and embedding models. 
 
 Not only it'll be possible to agreggate every text into volumes, Magiv2 gives us the possibility to aggregate into a character level! Here is a great example of MagiV2 classification working:
 
@@ -54,6 +54,12 @@ It goes as such:
 └── unpack_manga.sh      # A shell script that I've developed to unzip my mangás into the file system I've explained.
 ```
 
+# Hardware Specification
+
+**This projects depends heavily on the use of gpu accelerated software**. This means that having a strong GPU is a strong dependency to make things work. I'm personally using a RX6700XT, along with the powerful Ryzen 7 5700X3D, with 16GB of RAM to spare (trust me, I'd be best if I had more).
+
+**If you have an AMD graphics card** (such as me), there is no easy way to run this on the Windows OS. I wish I could say there is a way to make Pytorch work with the use of docker, but there isn't, as docker is a OS level virtualization software, and the windows kernel just simply have a tendency of not working well with ROCm. **My recommendation is running all inside a Linux distro.**
+
 # Notes on character classification
 
 As it is now, Magiv2 lacks on the functionality of clustering similar characters for post classification based on similarity. It solves this issue by using a robust image similarity search that translates a character name from a image bank. 
@@ -64,7 +70,7 @@ The way I mitigate these "poor" classifications on this large scale is by sampli
 
 <img src="readme_files/magiexample2.png" alt="MagiV2 example" width="350">
 
-A huge disclaimer about this feature is that, so far, there is no way to interpret character context during transcription. For example, in Punk Hazard ark, characters get their bodies switched by Law's power (a character in the story). It is tricky to represent those characters in manga panels as different person in different body and there is no way magiv2 will correctly assume that, for example, Nami is talking inside Franky's body or vice-versa.
+A huge disclaimer about this feature is that, so far, **there is no way to interpret character context during transcription**. For example, in Punk Hazard ark, characters get their bodies switched by Law's power (a character in the story). It is tricky to represent those characters in manga panels as different person in different body and there is no way magiv2 will correctly assume that, for example, Nami is talking inside Franky's body or vice-versa.
 
 And also, more related to Oda's artstyle, is the big issue of differencing between similar female characters as per example:
 
@@ -77,3 +83,11 @@ This will happen a lot during the story. Another good example is Robin and Viola
 <img src="readme_files/Robin.png" alt="Nami during Whole Cake" width="300"> <img src="readme_files/Viola.png" alt="Nami during Whole Cake" width="410"> 
 
 There may be a way of implementing a more robust classification model on top of MagiV2 to deal with those kinds of inconsistencies, but I'm not exploring this any further during the execution of this project. Nonetheless, my solution is simplicity and a bit of manual fine tuning after all of the process finishes executing.
+
+# What I Hope to Achieve with NLPiece
+
+**Natural Language Processing is a common skill on a data scientist toolkit** and I've been using it for years. Through this project, I want to share some of the challenges and possibilities of NLP in a fun and engaging way, showcasing how powerful it can be when applied creatively to textual data.
+
+Beyond that, **NLPiece is a glimpse into how AI can serve a greater purpose**. I believe the future of AI isn’t about replacing workers by automating what we already do. It’s about expanding possibilities and creating solutions that help everyone. One of my biggest **hopes is that, someday, AI-powered tools can allow people with disabilities to experience any manga they want**, with features like entity recognition, panel descriptions, and text transcription. Stories exist to be shared, and everyone deserves to be part of them.
+
+At the end of the day, **I hope this project inspires more professionals to use their skills for the greater good and to build solutions that uplift those who need them most and push AI toward making life better for all of us.**
