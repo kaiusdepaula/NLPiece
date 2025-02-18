@@ -22,7 +22,7 @@ class OnePieceSaga:
             "Zou": range(81, 83),
             "Whole_Cake_Island": range(83, 91),
             "Wano": range(91, 105),
-            "Egghead": range(105, 112)
+            # "Egghead": range(105, 112)
         }
 
         # Mapping volumes to sagas
@@ -53,12 +53,19 @@ class OnePieceSaga:
             "Zou": range(81, 83),
             "Whole_Cake_Island": range(83, 91),
             "Wano": range(91, 105),
-            "Egghead": range(105, 112),
+            # "Egghead": range(105, 112),
         }
 
     def get_saga_by_volume(self, volume: int) -> str:
         """Return the saga name for a given volume."""
         for saga, vol_range in self.saga_mapper.items():
+            if volume in vol_range:
+                return saga
+        return "Unknown Saga"
+    
+    def get_extended_saga_by_volume(self, volume: int) -> str:
+        """Return the extended saga name for a given volume."""
+        for saga, vol_range in self.saga_mapper_extended.items():
             if volume in vol_range:
                 return saga
         return "Unknown Saga"
